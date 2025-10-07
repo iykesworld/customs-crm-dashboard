@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚢 Cargo Risk Profiling Dashboard
 
-## Getting Started
+An interactive **Customs Cargo Risk Management Dashboard** built with **Next.js**, **Chart.js**, and **shadcn/ui** components.  
+This project demonstrates data-driven decision-making and modern web development techniques applied to **Customs Risk Management** — a critical function in trade facilitation and border security.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🧭 Project Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The **Cargo Risk Profiling Dashboard** simulates how customs officers can use technology to **prioritize high-risk cargo shipments** using data analytics and visualization.  
+It presents a clean, professional interface inspired by real-world customs systems, emphasizing usability and operational insight.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project was created as part of interview preparation for the **Nigeria Customs Service (NCS)** Superintendent Cadre, aligning closely with NCS’s focus on **risk-based cargo inspection** and **data-driven enforcement**.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🎯 Project Goal
 
-To learn more about Next.js, take a look at the following resources:
+To design and implement a **web-based interactive dashboard** that:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Visualizes **mock trade and inspection data**
+- Applies **simplified predictive risk scoring**
+- Helps customs officers identify **high-risk cargo containers**
+- Demonstrates practical understanding of **customs risk management** and **modern web technologies**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🧩 Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 1. **KPI Cards (Top Row)**
+Displays key operational statistics:
+- **Total Shipments**
+- **High Risk Count**
+- **Average Risk Score**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 2. **Visualization Section (Middle Row)**
+- **Doughnut Chart:** Risk Level Distribution (High / Medium / Low)  
+- **Bar Chart:** High-Risk Shipments by Country of Origin
+
+### 3. **Shipment Prioritization Table (Bottom)**
+- Search and Filter by Risk Level  
+- Displays Shipment ID, Risk Level (with color badges), Risk Score, and Country of Origin  
+- Color-coded badges for quick risk identification (🟥 High, 🟨 Medium, 🟩 Low)
+
+---
+
+## 🧠 Data Model (Mock Data)
+
+Each record in the dataset represents a shipment and includes:
+| Field | Description |
+|--------|--------------|
+| `shipmentId` | Unique cargo identifier |
+| `importerHistoryScore` | Numeric indicator of importer reliability |
+| `countryOfOrigin` | Country from which goods are shipped |
+| `declaredValue` | Declared monetary value of the shipment |
+| `declaredCommodity` | Type of goods declared |
+| `pastViolations` | Boolean flag for importer’s past customs violations |
+| `riskScore` | Computed using a weighted risk formula |
+
+---
+
+## 🧮 Risk Scoring Logic (Simplified Example)
+
+A sample scoring function was applied to determine risk levels:
+
+```js
+riskScore = (importerHistoryScore * 0.3)
+           + (countryRiskFactor * 0.3)
+           + (violationHistory ? 0.4 : 0);
