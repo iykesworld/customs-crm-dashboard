@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { Shield, TrendingUp, AlertTriangle, Search, Package, Globe, BarChart3 } from 'lucide-react';
+import { Shield, AlertTriangle, Search, Package, BarChart3 } from 'lucide-react';
 
 // Import Chart components (Assuming you saved them in src/components)
 import RiskDistributionChart from '../components/RiskDistributionChart';
@@ -117,7 +117,7 @@ export default function CustomsDashboard() {
 
     // Filter and sort the data based on user inputs
     const filteredShipments = useMemo(() => {
-        let filtered = initialData.filter((shipment) => {
+        const filtered = initialData.filter((shipment) => {
             const matchesSearch = shipment.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
                                   shipment.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
                                   shipment.countryOfOrigin.toLowerCase().includes(searchQuery.toLowerCase());
