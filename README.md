@@ -67,3 +67,5 @@ A sample scoring function was applied to determine risk levels:
 riskScore = (importerHistoryScore * 0.3)
            + (countryRiskFactor * 0.3)
            + (violationHistory ? 0.4 : 0);
+
+npm run dev to run 
